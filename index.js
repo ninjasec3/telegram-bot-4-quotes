@@ -1,6 +1,12 @@
 require('dotenv').config();
 const TelegramBot = require('node-telegram-bot-api');
 const cron = require('node-cron');
+const http = require('http');
+const server = http.createServer((req, res) => {
+	res.writeHead(200);
+	res.end('Bot is running!');
+});
+server.listen(process.env.PORT || 3000);
 
 const bot = new TelegramBot(process.env.BOT_TOKEN, { polling: true });
 const quotes = require('./quotes.json').laws;
