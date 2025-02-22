@@ -20,7 +20,7 @@ function getNextQuote() {
 	return `Prawo ${citation.law} - ${citation.quote}\n${citation.explanation}`;
 }
 
-cron.schedule('20 13 * * *', () => {
+cron.schedule('34 12 * * *', () => {
 	const dailyQuote = getNextQuote();
 	bot
 		.sendMessage(process.env.CHAT_ID, dailyQuote)
